@@ -1,5 +1,5 @@
 import turtle
-import math
+import random
 
 #https://github.com/MollyZhang/Algorithm-and-Data-Structure-In-Python/blob/master/Recursion-exercise3-hilbert%20curve.py
 #above link helped clarify approach to draw from coordinates
@@ -64,6 +64,9 @@ def hilbert(k, p1, p2, p3, p4, t):
         return points
     
 
+def generate_n_colours(n):
+    return ["#"+''.join([random.choice('0123456789ABCDEF') for _ in range(6)]) for _ in range(n)]
+
 def draw_hilbert(k):
     win_len = 550
     bound_len = 512
@@ -76,7 +79,7 @@ def draw_hilbert(k):
     t.left(90)
     t.up()
     t.goto((0, bound_len))
-    colors = ['#122c91', '#2a6fdb', '#48d6d2', 'orange', '#0a2f35', '#fefcbf', 'purple', 'gold']
+    colors = generate_n_colours(k)
     for k, col in zip(range(1, k+1), colors):
         t.color(col)
         points = hilbert(k, [0, bound_len], [0, 0], [bound_len, 0], [bound_len, bound_len], t)
