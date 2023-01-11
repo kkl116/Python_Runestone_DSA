@@ -2,6 +2,6 @@
 #simple bash script to run runestone textbook locally
 
 #path to book
-cd ~/Documents/Books/Runestone/pythonds-master
+cd ~/Documents/Books/pythonds
 
 runestone serve
